@@ -57,7 +57,7 @@ sistema-gestion-cine/
 |---|---|---|---|
 | `EstadoButaca.java` | model | Dev 1 | Enum con los 3 estados posibles. |
 | `Butaca.java` | model | Dev 1 | Entidad que representa un asiento. |
-| `ISalaService.java` | service/interfaces | Dev 2 | Contrato de operaciones (reservar, cancelar, etc). |dime 
+| `ISalaService.java` | service/interfaces | Dev 2 | Contrato de operaciones (reservar, cancelar, etc). |
 | `ISalaQuery.java` | service/interfaces | Dev 3 | Contrato de consultas (contar libres, listar, etc). |
 | `SalaManager.java` | service | Dev 2 | Singleton. Inicializa y posee la matriz `Butaca[][]`. |
 | `SalaService.java` | service | Dev 2 | Implementa `ISalaService`. Reglas de reserva/cancelación. |
@@ -490,4 +490,9 @@ Y cada método `public` tenga:
  * @return [Qué devuelve, si aplica]
  * @throws [Excepción] [Cuándo se lanza, si aplica]
  */
+<<<<<<< HEAD
 ```
+=======
+```
+
+>>>>>>> 13c8fd2 (docs: Agrega plan de trabajo y requerimientos del proyecto en Markdown)
