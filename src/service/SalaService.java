@@ -61,7 +61,7 @@ public class SalaService implements ISalaService {
             throws PosicionInvalidaException, AsientoNoReservadoException {
         validarPosicion(fila, columna);
         Butaca butaca = manager.getButaca(fila, columna);
-        verificarEstadoParaCancelar(butaca);
+         verificarEstadoParaCancelar(butaca);
         cambiarEstado(butaca, EstadoButaca.LIBRE);
     }
     // fin rutina: Cancelación de reserva
