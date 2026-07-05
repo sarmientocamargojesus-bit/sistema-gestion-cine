@@ -1,57 +1,67 @@
 package model;
 
 /**
- * Singleton encargado de administrar la estructura principal de la sala.
- * Inicializa y posee la matriz de butacas.
+ * Representa una sala de cine con su propia matriz de butacas.
+ * Cada instancia es completamente independiente: valida posiciones
+ * contra su propio tamaño y no comparte estado con otras salas.
  */
+// PARADIGMA: Orientado a Objetos — Encapsulamiento y responsabilidad única
 public class SalaCine {
-    
-    public static int MAX_FILAS = 5;
-    public static int MAX_COLS = 6;
 
-    private static SalaCine instancia;
+    private static int siguienteId = 1;
+
+    private final int id;
+    private final String nombre;
+    private final int filas;
+    private final int cols;
     private final Butaca[][] butacas;
 
-    // PARADIGMA: Imperativo — Inicialización y recorrido de la matriz de butacas
-    private SalaCine() {
-        butacas = new Butaca[MAX_FILAS][MAX_COLS];
+    /**
+     * Crea una nueva sala de cine con el nombre y dimensiones indicados.
+     * Todas las butacas se inicializan en estado LIBRE.
+     * @param nombre Nombre descriptivo de la sala (ej. "Sala 1").
+     * @param filas  Número de filas de la sala.
+     * @param cols   Número de columnas de la sala.
+     */
+    public SalaCine(String nombre, int filas, int cols) {
+        this.id     = siguienteId++;
+        this.nombre = nombre;
+        this.filas  = filas;
+        this.cols   = cols;
+        this.butacas = new Butaca[filas][cols];
         inicializarSala();
     }
 
-    /**
-     * Debe llamarse antes de getInstance() para configurar el tamaño de la sala.
-     */
-    public static synchronized void inicializar(int filas, int cols) {
-        if (instancia != null) {
-            throw new IllegalStateException("La sala ya fue inicializada.");
-        }
-        MAX_FILAS = filas;
-        MAX_COLS = cols;
-    }
-
-    /**
-     * Obtiene la instancia única de SalaManager (patrón Singleton).
-     * @return La instancia única de SalaManager.
-     */
-    public static synchronized SalaCine getInstance() {
-        if (instancia == null) {
-            instancia = new SalaCine();
-        }
-        return instancia;
-    }
-
     // INICIO RUTINA: Inicialización de la matriz de butacas
-    /**
-     * Inicializa la matriz de butacas con objetos Butaca en estado LIBRE.
-     */
+    // PARADIGMA: Imperativo — Recorrido secuencial con bucles anidados
     private void inicializarSala() {
-        for (int i = 0; i < MAX_FILAS; i++) {
-            for (int j = 0; j < MAX_COLS; j++) {
+        for (int i = 0; i < filas; i++) {
+            for (int j = 0; j < cols; j++) {
                 butacas[i][j] = new Butaca(i, j, EstadoButaca.LIBRE);
             }
         }
     }
     // FIN RUTINA: Inicialización de la matriz de butacas
+
+    /** @return Identificador único de la sala. */
+    public int getId() {
+        return id;
+    }
+
+    /** @return Nombre descriptivo de la sala. */
+    public String getNombre() {
+        return nombre;
+    }
+
+    /** @return Número de filas de la sala. */
+    public int getFilas() {
+        return filas;
+    }
+
+    /** @return Número de columnas de la sala. */
+    public int getCols() {
+        return cols;
+    }
 
     /**
      * Obtiene la matriz completa de butacas de la sala.
@@ -62,13 +72,13 @@ public class SalaCine {
     }
 
     /**
-     * Obtiene una butaca en una posición específica de la sala.
-     * @param fila    Índice de la fila.
-     * @param columna Índice de la columna.
-     * @return La butaca en la posición especificada, o null si los índices están fuera de rango.
+     * Obtiene la butaca en la posición indicada, o null si está fuera de rango.
+     * @param fila    Índice de fila.
+     * @param columna Índice de columna.
+     * @return La butaca en esa posición, o null si los índices son inválidos.
      */
     public Butaca getButaca(int fila, int columna) {
-        if (fila >= 0 && fila < MAX_FILAS && columna >= 0 && columna < MAX_COLS) {
+        if (fila >= 0 && fila < filas && columna >= 0 && columna < cols) {
             return butacas[fila][columna];
         }
         return null;
