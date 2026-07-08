@@ -1,8 +1,19 @@
 package app;
 
-import model.Rol;
-import model.SalaCine;
-import model.SalaFactory;
+import view.frame.*;
+import view.panel.*;
+import view.dialog.*;
+import view.component.*;
+import view.*;
+import model.sala.*;
+import model.butaca.*;
+import model.reserva.*;
+import model.auth.*;
+
+
+import model.auth.Rol;
+import model.sala.SalaCine;
+import model.sala.SalaFactory;
 import service.GestorSalas;
 import service.SalaQuery;
 import service.SalaService;
@@ -10,8 +21,8 @@ import service.interfaces.ISalaQuery;
 import service.interfaces.ISalaService;
 import service.interfaces.ISalaQuery;
 import service.interfaces.ISalaService;
-import view.LoginFrame;
-import view.MainFrame;
+import view.frame.LoginFrame;
+import view.frame.MainFrame;
 
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;

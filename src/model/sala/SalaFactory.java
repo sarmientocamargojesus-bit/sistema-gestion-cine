@@ -1,4 +1,10 @@
-package model;
+package model.sala;
+
+import model.sala.*;
+import model.butaca.*;
+import model.reserva.*;
+import model.auth.*;
+
 
 /**
  * Fábrica responsable de crear instancias de SalaCine con validación previa.

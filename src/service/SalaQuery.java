@@ -1,8 +1,14 @@
 package service;
 
-import model.Butaca;
-import model.EstadoButaca;
-import model.SalaCine;
+import model.sala.*;
+import model.butaca.*;
+import model.reserva.*;
+import model.auth.*;
+
+
+import model.butaca.Butaca;
+import model.butaca.EstadoButaca;
+import model.sala.SalaCine;
 import service.interfaces.ISalaQuery;
 
 import java.util.Arrays;

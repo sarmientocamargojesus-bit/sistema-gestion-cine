@@ -1,6 +1,12 @@
 package service.interfaces;
 
-import model.Butaca;
+import model.sala.*;
+import model.butaca.*;
+import model.reserva.*;
+import model.auth.*;
+
+
+import model.butaca.Butaca;
 
 /**
  * Contrato de consultas de solo lectura sobre una sala de cine.

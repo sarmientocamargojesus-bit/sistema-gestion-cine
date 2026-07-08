@@ -1,4 +1,15 @@
-package view;
+package view.panel;
+
+import view.*;
+import view.frame.*;
+import view.panel.*;
+import view.dialog.*;
+import view.component.*;
+import model.sala.*;
+import model.butaca.*;
+import model.reserva.*;
+import model.auth.*;
+
 
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -7,10 +18,10 @@ import java.awt.geom.RoundRectangle2D;
 import java.util.List;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import model.ResumenSalas;
-import model.Rol;
-import model.SalaCine;
-import model.SalaFactory;
+import model.sala.ResumenSalas;
+import model.auth.Rol;
+import model.sala.SalaCine;
+import model.sala.SalaFactory;
 import service.GestorSalas;
 import service.SalaQuery;
 import service.SalaService;

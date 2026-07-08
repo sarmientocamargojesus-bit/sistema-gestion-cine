@@ -1,10 +1,21 @@
-package view;
+package view.panel;
+
+import view.*;
+import view.frame.*;
+import view.panel.*;
+import view.dialog.*;
+import view.component.*;
+import model.sala.*;
+import model.butaca.*;
+import model.reserva.*;
+import model.auth.*;
+
 
 import exception.AsientoNoReservadoException;
 import exception.AsientoOcupadoException;
 import exception.AsientoYaReservadoException;
 import exception.PosicionInvalidaException;
-import model.Rol;
+import model.auth.Rol;
 import service.interfaces.ISalaQuery;
 import service.interfaces.ISalaService;
 

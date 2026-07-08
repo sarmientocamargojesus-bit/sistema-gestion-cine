@@ -1,15 +1,21 @@
 package service;
 
+import model.sala.*;
+import model.butaca.*;
+import model.reserva.*;
+import model.auth.*;
+
+
 import exception.AsientoNoReservadoException;
 import exception.AsientoOcupadoException;
 import exception.AsientoYaReservadoException;
 import exception.PosicionInvalidaException;
 import java.util.ArrayList;
 import java.util.List;
-import model.Butaca;
-import model.EstadoButaca;
-import model.ResultadoReserva;
-import model.SalaCine;
+import model.butaca.Butaca;
+import model.butaca.EstadoButaca;
+import model.reserva.ResultadoReserva;
+import model.sala.SalaCine;
 import service.interfaces.ISalaService;
 
 /**

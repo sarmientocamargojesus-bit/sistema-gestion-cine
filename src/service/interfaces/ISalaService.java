@@ -1,10 +1,16 @@
 package service.interfaces;
 
+import model.sala.*;
+import model.butaca.*;
+import model.reserva.*;
+import model.auth.*;
+
+
 import exception.AsientoNoReservadoException;
 import exception.AsientoOcupadoException;
 import exception.AsientoYaReservadoException;
 import exception.PosicionInvalidaException;
-import model.ResultadoReserva;
+import model.reserva.ResultadoReserva;
 
 import java.util.List;
 

@@ -1,4 +1,10 @@
-package model;
+package model.butaca;
+
+import model.sala.*;
+import model.butaca.*;
+import model.reserva.*;
+import model.auth.*;
+
 
 /**
  * Define los tres estados posibles de una butaca dentro de la sala.

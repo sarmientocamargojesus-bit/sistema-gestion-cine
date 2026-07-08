@@ -1,4 +1,10 @@
-package model;
+package model.butaca;
+
+import model.sala.*;
+import model.butaca.*;
+import model.reserva.*;
+import model.auth.*;
+
 
 /**
  * Representa un asiento individual de la sala de cine.

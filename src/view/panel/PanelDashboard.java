@@ -1,6 +1,17 @@
-package view;
+package view.panel;
 
-import model.ResumenSalas;
+import view.*;
+import view.frame.*;
+import view.panel.*;
+import view.dialog.*;
+import view.component.*;
+import model.sala.*;
+import model.butaca.*;
+import model.reserva.*;
+import model.auth.*;
+
+
+import model.sala.ResumenSalas;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;

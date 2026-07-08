@@ -1,6 +1,17 @@
-package view;
+package view.component;
 
-import model.EstadoButaca;
+import view.*;
+import view.frame.*;
+import view.panel.*;
+import view.dialog.*;
+import view.component.*;
+import model.sala.*;
+import model.butaca.*;
+import model.reserva.*;
+import model.auth.*;
+
+
+import model.butaca.EstadoButaca;
 
 import javax.swing.JButton;
 import java.awt.BasicStroke;
