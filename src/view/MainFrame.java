@@ -281,12 +281,12 @@ public class MainFrame extends JFrame {
         contenedorSala.setOpaque(false);
         contenedorSala.setBorder(new EmptyBorder(16, 20, 16, 20));
 
-        // Sub-encabezado de la sala (pantalla + nombre)
-        contenedorSala.add(crearHeaderSala(nombreSala, salaQuery), BorderLayout.NORTH);
-
         // Panel principal: grilla + leyenda
         JPanel izquierda = new JPanel(new BorderLayout(0, 10));
         izquierda.setOpaque(false);
+
+        // Sub-encabezado de la sala (pantalla + nombre) solo en el lado izquierdo
+        izquierda.add(crearHeaderSala(nombreSala, salaQuery), BorderLayout.NORTH);
         panelSalaActual = new PanelSala(salaService, salaQuery, rol);
         JScrollPane scrollSala = new JScrollPane(panelSalaActual);
         scrollSala.setOpaque(false);
