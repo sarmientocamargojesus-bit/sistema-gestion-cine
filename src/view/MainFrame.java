@@ -353,13 +353,7 @@ public class MainFrame extends JFrame {
         pantalla.add(lblPantalla, BorderLayout.CENTER);
         pantallaWrap.add(pantalla);
 
-        var matriz = salaQuery.obtenerMatriz();
-        int f = matriz.length, c = f > 0 ? matriz[0].length : 0;
-        JLabel lblInfo = ComponenteUI.pequena(nombreSala + "  ·  " + f + " filas × " + c + " columnas  ·  " + (f*c) + " butacas");
-        lblInfo.setHorizontalAlignment(SwingConstants.CENTER);
-
         enc.add(pantallaWrap, BorderLayout.NORTH);
-        enc.add(lblInfo, BorderLayout.CENTER);
         return enc;
     }
 

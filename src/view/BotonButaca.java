@@ -25,6 +25,7 @@ public class BotonButaca extends JButton {
 
     private final int fila;
     private final int columna;
+    private final int numeroAsiento;
     private EstadoButaca estado;
     private boolean hover;
 
@@ -33,9 +34,10 @@ public class BotonButaca extends JButton {
      * @param fila    Índice de fila (0 a MAX_FILAS-1)
      * @param columna Índice de columna (0 a MAX_COLS-1)
      */
-    public BotonButaca(int fila, int columna) {
+    public BotonButaca(int fila, int columna, int numeroAsiento) {
         this.fila = fila;
         this.columna = columna;
+        this.numeroAsiento = numeroAsiento;
         this.estado = EstadoButaca.LIBRE;
         this.hover = false;
         configurarAspecto();
@@ -135,7 +137,7 @@ public class BotonButaca extends JButton {
         // FIX-6: etiqueta más grande y legible
         g2.setFont(new Font("Segoe UI", Font.BOLD, 13));
         g2.setColor(new Color(255, 255, 255, 210));
-        String etiqueta = etiquetaEstado();
+        String etiqueta = String.valueOf(numeroAsiento);
         FontMetrics fm = g2.getFontMetrics();
         g2.drawString(etiqueta, (w - fm.stringWidth(etiqueta)) / 2, h / 2 + 6);
 
@@ -155,14 +157,6 @@ public class BotonButaca extends JButton {
             case RESERVADO: return UIConstants.COLOR_RESERVADO_HOVER;
             case OCUPADO:   return UIConstants.COLOR_OCUPADO_HOVER;
             default:        return UIConstants.COLOR_LIBRE_HOVER;
-        }
-    }
-
-    private String etiquetaEstado() {
-        switch (estado) {
-            case RESERVADO: return "R";
-            case OCUPADO:   return "O";
-            default:        return "L";
         }
     }
 }

@@ -64,11 +64,20 @@ public class PanelSala extends JPanel {
     private void agregarEncabezados(GridBagConstraints gbc) {
         gbc.gridx = 0;
         gbc.gridy = 0;
+        gbc.insets = new Insets(4, 5, 4, 5);
         add(new JLabel(""), gbc);
 
         for (int j = 0; j < columnas; j++) {
             gbc.gridx = j + 1;
             gbc.gridy = 0;
+            
+            int rightInset = 5;
+            if (columnas == 4 && j == 1) rightInset = 35;
+            else if (columnas == 6 && j == 2) rightInset = 35;
+            else if (columnas >= 7 && (j == 1 || j == columnas - 3)) rightInset = 35;
+            
+            gbc.insets = new Insets(4, 5, 4, rightInset);
+            
             JLabel lblCol = new JLabel("C" + (j + 1), SwingConstants.CENTER);
             lblCol.setFont(new Font("Segoe UI", Font.BOLD, 11));
             lblCol.setForeground(UIConstants.TEXTO_SECUNDARIO);
@@ -83,6 +92,7 @@ public class PanelSala extends JPanel {
         for (int i = 0; i < filas; i++) {
             gbc.gridx = 0;
             gbc.gridy = i + 1;
+            gbc.insets = new Insets(4, 5, 4, 5);
             JLabel lblFila = new JLabel("F" + (i + 1), SwingConstants.CENTER);
             lblFila.setFont(new Font("Segoe UI", Font.BOLD, 11));
             lblFila.setForeground(UIConstants.TEXTO_SECUNDARIO);
@@ -92,7 +102,16 @@ public class PanelSala extends JPanel {
             for (int j = 0; j < columnas; j++) {
                 gbc.gridx = j + 1;
                 gbc.gridy = i + 1;
-                BotonButaca boton = crearBotonButaca(i, j);
+                
+                int rightInset = 5;
+                if (columnas == 4 && j == 1) rightInset = 35;
+                else if (columnas == 6 && j == 2) rightInset = 35;
+                else if (columnas >= 7 && (j == 1 || j == columnas - 3)) rightInset = 35;
+                
+                gbc.insets = new Insets(4, 5, 4, rightInset);
+                
+                int numeroAsiento = (i * columnas) + j + 1;
+                BotonButaca boton = crearBotonButaca(i, j, numeroAsiento);
                 botones[i][j] = boton;
                 add(boton, gbc);
             }
@@ -101,8 +120,8 @@ public class PanelSala extends JPanel {
     // FIN RUTINA: Creación de la grilla de butacas
 
     // Factory Method (implícito): centraliza la creación de cada botón.
-    private BotonButaca crearBotonButaca(int fila, int columna) {
-        BotonButaca boton = new BotonButaca(fila, columna);
+    private BotonButaca crearBotonButaca(int fila, int columna, int numeroAsiento) {
+        BotonButaca boton = new BotonButaca(fila, columna, numeroAsiento);
         // PARADIGMA: Orientado a Eventos — ActionListener como Observer
         boton.addActionListener(e -> onButacaClick(boton.getFila(), boton.getColumna()));
         return boton;
