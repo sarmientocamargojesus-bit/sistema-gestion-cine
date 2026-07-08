@@ -23,8 +23,8 @@ public class PanelLeyenda extends JPanel {
      */
     public PanelLeyenda() {
         setOpaque(false);
-        setLayout(new FlowLayout(FlowLayout.LEFT, 18, 6));
-        setBorder(new EmptyBorder(8, 12, 8, 12));
+        setLayout(new FlowLayout(FlowLayout.LEFT, 18, 0));
+        setBorder(new EmptyBorder(2, 12, 2, 12));
         inicializarComponentes();
     }
 

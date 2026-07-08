@@ -135,11 +135,17 @@ public class BotonButaca extends JButton {
         g2.draw(new RoundRectangle2D.Float(3, 8, w - 7, h - 12, 10, 10));
 
         // FIX-6: etiqueta más grande y legible
-        g2.setFont(new Font("Segoe UI", Font.BOLD, 13));
+        String etiqueta;
+        if (estado == EstadoButaca.OCUPADO) {
+            g2.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 15));
+            etiqueta = "👤";
+        } else {
+            g2.setFont(new Font("Segoe UI", Font.BOLD, 13));
+            etiqueta = String.valueOf(numeroAsiento);
+        }
         g2.setColor(new Color(255, 255, 255, 210));
-        String etiqueta = String.valueOf(numeroAsiento);
         FontMetrics fm = g2.getFontMetrics();
-        g2.drawString(etiqueta, (w - fm.stringWidth(etiqueta)) / 2, h / 2 + 6);
+        g2.drawString(etiqueta, (w - fm.stringWidth(etiqueta)) / 2, h / 2 + 5);
 
         g2.dispose();
     }
